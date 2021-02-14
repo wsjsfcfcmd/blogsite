@@ -1,0 +1,35 @@
+@startuml
+
+' hide the spot
+hide circle
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+
+entity "blog" as blog {
+  id : string
+  --
+  title: string
+  content: string
+  user_id: string
+  created_at: datetime
+  updated_at: datetime
+}
+
+entity "user" as user {
+  id : string 
+  --
+  display_name: string
+}
+
+entity "user_email" as user_email {
+  id : string 
+  --
+  user_id: string
+  email: string
+}
+
+user ||--|{ user_email
+user ||--|{ blog
+
+@enduml
